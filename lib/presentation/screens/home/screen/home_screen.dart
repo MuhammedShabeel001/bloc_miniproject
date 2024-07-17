@@ -27,6 +27,13 @@ class HomeScreen extends StatelessWidget {
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
+            ),floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.black,
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (ctx) => AddScreen()));
+              },
+              child: const Icon(Icons.add, color: Colors.white,),
             ),
             body: BlocBuilder<HomeCubit, HomeState>(
               builder: (context, state) {
@@ -95,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                                                   behavior:
                                                       SnackBarBehavior.floating,
                                                   backgroundColor:
-                                                      Colors.green));
+                                                      Colors.red));
                                         } else {
                                           // ignore: use_build_context_synchronously
                                           ScaffoldMessenger.of(context)
@@ -130,12 +137,7 @@ class HomeScreen extends StatelessWidget {
                 }
               },
             ),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (ctx) => AddScreen()));
-              },
-              child: const Icon(Icons.add),
-            )));
+            
+            ));
   }
 }
